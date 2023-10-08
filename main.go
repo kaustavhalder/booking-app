@@ -10,6 +10,19 @@ func main() {
 	fmt.Println("Welcome to", confName, "Booking Application")
 	fmt.Println("Get tickets to attend the conference")
 	fmt.Println("Total Tickets", confTickets, "Still Available", remainingTickets)
-	fmt.Printf("type of confTickets %T and confName %T\n", confTickets, confName)
+
+	var userName string
+	var userTickets int
+	// Get user input
+	fmt.Println("Enter your name")
+	fmt.Scan(&userName)
+
+	fmt.Println("Enter number of tickets")
+	fmt.Scan(&userTickets)
+
+	remainingTickets = confTickets - uint(userTickets)
+
+	fmt.Printf("User %v bought %v tickets\n", userName, userTickets)
+	fmt.Printf("Remaining Tickets in the conference %v\n", remainingTickets)
 
 }
