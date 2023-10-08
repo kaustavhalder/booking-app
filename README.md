@@ -1,3 +1,3 @@
 # Ticket Booking Application
 
-Sample application written in Go 
+Sample application written in Go
