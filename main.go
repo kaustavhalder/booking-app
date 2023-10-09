@@ -30,13 +30,11 @@ func main() {
 		fmt.Scan(&userTickets)
 
 		// Perform operations
-
 		remainingTickets = remainingTickets - uint(userTickets)
 		bookings = append(bookings, firstName+" "+lastName)
 
 		fmt.Printf("User %v bought %v tickets\n", firstName+" "+lastName, userTickets)
 		fmt.Printf("Remaining Tickets in the conference %v\n", remainingTickets)
-		// fmt.Printf("Total Bookings %v\n", bookings)
 
 		firstNames := []string{}
 		for _, val := range bookings{
