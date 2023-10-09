@@ -5,11 +5,11 @@ import (
 	"strings"
 )
 
+const confTickets = 50
+
 var confName = "Go Conference"
 var remainingTickets uint = 50
 var bookings []string
-
-const confTickets = 50
 
 func main() {
 	greetUser()
@@ -38,12 +38,7 @@ func main() {
 			fmt.Printf("User %v bought %v tickets\n", firstName+" "+lastName, userTickets)
 			fmt.Printf("Remaining Tickets in the conference %v\n", remainingTickets)
 
-			firstNames := []string{}
-			for _, val := range bookings {
-				var name = strings.Fields(val)
-				firstNames = append(firstNames, name[0])
-			}
-			fmt.Printf("Bookings made by %v\n", firstNames)
+			printFirstName(bookings)
 			if remainingTickets == 0 {
 				fmt.Println("Tickets have been sold out")
 				break
@@ -65,4 +60,13 @@ func greetUser() {
 	fmt.Println("Welcome to", confName, "Booking Application")
 	fmt.Println("Get tickets to attend the conference")
 	fmt.Println("Total Tickets", confTickets, "Still Available", remainingTickets)
+}
+
+func printFirstName(bookings []string) {
+	firstNames := []string{}
+	for _, val := range bookings {
+		var name = strings.Fields(val)
+		firstNames = append(firstNames, name[0])
+	}
+	fmt.Printf("Bookings made by %v\n", firstNames)
 }
