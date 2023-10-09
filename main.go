@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
 	var confName = "Go Conference"
@@ -13,21 +16,34 @@ func main() {
 	fmt.Println("Total Tickets", confTickets, "Still Available", remainingTickets)
 
 	for {
-		var userName string
+		var firstName string
+		var lastName string
 		var userTickets int
 		// Get user input
-		fmt.Println("Enter your name")
-		fmt.Scan(&userName)
+		fmt.Println("Enter your first name")
+		fmt.Scan(&firstName)
+
+		fmt.Println("Enter your last name")
+		fmt.Scan(&lastName)
 
 		fmt.Println("Enter number of tickets")
 		fmt.Scan(&userTickets)
 
-		remainingTickets = remainingTickets - uint(userTickets)
-		bookings = append(bookings, userName)
+		// Perform operations
 
-		fmt.Printf("User %v bought %v tickets\n", userName, userTickets)
+		remainingTickets = remainingTickets - uint(userTickets)
+		bookings = append(bookings, firstName+" "+lastName)
+
+		fmt.Printf("User %v bought %v tickets\n", firstName+" "+lastName, userTickets)
 		fmt.Printf("Remaining Tickets in the conference %v\n", remainingTickets)
-		fmt.Printf("Total Bookings %v\n", bookings)
+		// fmt.Printf("Total Bookings %v\n", bookings)
+
+		firstNames := []string{}
+		for _, val := range bookings{
+			var name = strings.Fields(val)
+			firstNames = append(firstNames, name[0])
+		}
+		fmt.Printf("Bookings made by %v\n", firstNames)
 
 	}
 
