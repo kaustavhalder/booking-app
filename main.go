@@ -52,7 +52,12 @@ func main() {
 
 		} else {
 			// fmt.Printf("we only have %v tickets available, you cant book %v tickets\n", remainingTickets, userTickets)
-			fmt.Println("User data input is invalid, try again")
+			if !isValidName {
+				fmt.Println("you have entered wrong first name or last name")
+			}
+			if !isUserTickets {
+				fmt.Println("no of tickets have been entered wrongly")
+			}
 		}
 	}
 }
