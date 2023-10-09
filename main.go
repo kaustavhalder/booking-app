@@ -1,6 +1,7 @@
 package main
 
 import (
+	"booking-app/helper"
 	"fmt"
 	"strings"
 )
@@ -12,7 +13,7 @@ var remainingTickets uint = 50
 var bookings []string
 
 func main() {
-	greetUser()
+	helper.GreetUser(confName, confTickets, int(remainingTickets))
 
 	for {
 		var firstName string
