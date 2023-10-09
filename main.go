@@ -5,15 +5,14 @@ import (
 	"strings"
 )
 
-func main() {
-	var confName = "Go Conference"
-	const confTickets = 50
-	var remainingTickets uint = 50
-	var bookings []string
+var confName = "Go Conference"
+var remainingTickets uint = 50
+var bookings []string
 
-	fmt.Println("Welcome to", confName, "Booking Application")
-	fmt.Println("Get tickets to attend the conference")
-	fmt.Println("Total Tickets", confTickets, "Still Available", remainingTickets)
+const confTickets = 50
+
+func main() {
+	greetUser()
 
 	for {
 		var firstName string
@@ -30,7 +29,7 @@ func main() {
 		fmt.Scan(&userTickets)
 
 		isValidName := len(firstName) >= 2 && len(lastName) >= 2
-		isUserTickets := userTickets > 0 && userTickets < 50
+		isUserTickets := userTickets > 0 && userTickets <= 50
 
 		if isValidName && isUserTickets {
 			remainingTickets = remainingTickets - uint(userTickets)
@@ -60,4 +59,10 @@ func main() {
 			}
 		}
 	}
+}
+
+func greetUser() {
+	fmt.Println("Welcome to", confName, "Booking Application")
+	fmt.Println("Get tickets to attend the conference")
+	fmt.Println("Total Tickets", confTickets, "Still Available", remainingTickets)
 }
